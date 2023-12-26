@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+:root {
+    --moderate-violet: 263, 55%, 52%;
+    --grayish-blue: 217, 19%, 35%;
+    --blackish-blue: 219, 29%, 14%;
+    --white: 0, 0%, 100%;
+
+    --text-color: 0, 0%, 81%;
+    --bg-color: 210, 46%, 95%;
+
+    /* 
+      Note for text colors:
+      1. "Verified Graduate" has the same color as the person's name with 50% opacity
+      2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity
+    */
+
+    font-size: 13px;
+    font-family: 'Barlow', sans-serif;
+}
+
+body {
+  background-color: hsl(var(--bg-color));
+  display: grid;
+  min-height: 100vh;
+}
+
+.testimonials-container {
+  margin-inline: auto;
+  margin-block: auto;
+  padding-block: 2rem;
+  display: grid;
+  gap: 2.5rem;
+  width: min(90%, 90rem)
+}
+
+.testimonial-card {
+  padding: 2rem 2.4rem 2rem 2.3rem;
+  border-radius: 0.8rem;
+  box-shadow: 9px 67px 76px -70px rgba(83, 69, 122, 0.64);
+}
+
+.testimonial-card.testimonial-1 {
+  background-color: hsl(var(--moderate-violet));
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 95% 0;
+}
+
+
+.testimonial-card.testimonial-2 {
+  background-color: hsl(var(--grayish-blue));
+}
+
+.testimonial-card.testimonial-3 {
+  background-color: hsl(var(--white));
+}
+
+.testimonial-card.testimonial-4 {
+  background-color: hsl(var(--blackish-blue));
+}
+
+.testimonial-card.testimonial-5 {
+  background-color: hsl(var(--white));
+}
+
+.testifier-info {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 2rem;
+  border-radius: 50%;
+  border: 2px solid hsla(var(--text-color), 50%)
+}
+
+.testimonial-card .name {
+  color: hsl(var(--text-color));
+  font-size: 0.9rem;
+}
+
+.testimonial-card .position {
+  color: hsla(var(--text-color), 50%);
+  font-size: 0.9rem;
+}
+
+.testimonial-card .heading {
+  color: hsl(var(--white));
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem 0;
+}
+
+.quote {
+  color: hsla(var(--text-color), 70%);
+  font-size: 0.9rem;
+  padding-right: 1rem;
+}
+
+.testimonial-3 .name,
+.testimonial-3 .heading,
+.testimonial-5 .name,
+.testimonial-5 .heading {
+  color: hsla(var(--grayish-blue));
+}
+
+.testimonial-3 .position,
+.testimonial-5 .position {
+  color: hsla(var(--grayish-blue), 50%)
+}
+
+.testimonial-3 .quote,
+.testimonial-5 .quote {
+  color: hsla(var(--grayish-blue), 70%)
+}
+
+@media (min-width: 900px) {
+  .testimonials-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, min-content);
+  }
+
+  .testimonial-card.testimonial-1,
+  .testimonial-card.testimonial-4 {
+    grid-column: span 2;
+  }
+
+  .testimonial-card.testimonial-5 {
+    grid-column: -1/1;
+  }
+}
+
+@media (min-width: 1100px) {
+  .testimonials-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, min-content);
+  }
+
+  .testimonial-card.testimonial-1 {
+    background-position: 80% 0;
+  }
+
+  .testimonial-card.testimonial-1, 
+  .testimonial-card.testimonial-4 {
+    grid-column: span 2;
+  }
+
+  .testimonial-card.testimonial-3 {
+    grid-row: 2;
+  }
+
+  .testimonial-card.testimonial-5 {
+    grid-row: -1 / 1;
+    grid-column: 4 / 5;
+  }
+}
